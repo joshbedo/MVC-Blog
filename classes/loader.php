@@ -7,7 +7,7 @@ class Loader{
 	private $controllerName;
 	private $controllerClass;
 	private $action;
-	private $urlvalues;
+	private $urlValues;
 
 	//store the URL values on object creation
 	public function __construct(){
