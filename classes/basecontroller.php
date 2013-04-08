@@ -1,21 +1,24 @@
 <?php
+/*
+* DESC: abstract class which controllers use to extend
+*/
+
 abstract class BaseController{
-	protected $urlvalues;
+	protected $urlValues;
 	protected $action;
-	public function __construct($action, $urlvalues){
+	protected $model;
+	protected $view;
+
+	public function __construct($action, $urlValues){
 		$this->action = $action;
-		$this->urlvalues = $urlvalues;
+		$this->urlValues = $urlValues;
+
+		//create a new View
+		$this->view = new View(get_class($this), $action);
 	}
+	
 	public function ExecuteAction(){
 		return $this->{$this->action}();
-	}
-	protected function ReturnView($viewmodel, $fullview){
-		$viewloc = 'views/' . get_class($this) . '/' . $this->action . '.php';
-		if($fullview){
-			require('views/maintemplate.php');
-		}else{
-			require($viewloc);
-		}
 	}
 }
 ?>
