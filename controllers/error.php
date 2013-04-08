@@ -14,7 +14,7 @@ class ErrorController extends BaseController{
 	}
 
 	//bad URL request error
-	protected function badurl(){
+	protected function badURL(){
 		$this->view->output($this->model->badURL());
 	}
 }
